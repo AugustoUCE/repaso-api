@@ -1,8 +1,6 @@
 package uce.edu.ec.service.to;
 
-import jakarta.persistence.*;
-
-import java.time.LocalDateTime;
+import java.util.Date;
 
 public class EstudianteTO {
 
@@ -12,12 +10,12 @@ public class EstudianteTO {
 
     private String apellido;
 
-    private LocalDateTime fechaNacimiento;
+    private Date fechaNacimiento;
 
     public EstudianteTO() {
     }
 
-    public EstudianteTO(Integer id, String nombre, String apellido, LocalDateTime fechaNacimiento) {
+    public EstudianteTO(Integer id, String nombre, String apellido, Date fechaNacimiento) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -48,11 +46,11 @@ public class EstudianteTO {
         this.apellido = apellido;
     }
 
-    public LocalDateTime getFechaNacimiento() {
+    public Date getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(LocalDateTime fechaNacimiento) {
+    public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 }

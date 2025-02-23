@@ -1,8 +1,9 @@
 package uce.edu.ec.service;
 
 
-import uce.edu.ec.service.to.EstudianteTO;
 import java.util.List;
+
+import uce.edu.ec.service.to.EstudianteTO;
 
 public interface EstudianteServ {
 
@@ -13,6 +14,8 @@ public interface EstudianteServ {
     public void eliminarEstudiante(Integer id);
 
     public EstudianteTO obtenerEstudiante(Integer id);
+    
+     public List<EstudianteTO> obtenerEstudiantes();
 
 
 

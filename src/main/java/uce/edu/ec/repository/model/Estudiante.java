@@ -1,8 +1,14 @@
 package uce.edu.ec.repository.model;
 
-import jakarta.persistence.*;
+import java.util.Date;
 
-import java.time.LocalDateTime;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
 
 
 @Entity
@@ -18,12 +24,12 @@ public class Estudiante {
     @Column(name = "apellido")
     private String apellido;
     @Column(name = "fecha_nacimiento")
-    private LocalDateTime fechaNacimiento;
+    private Date fechaNacimiento;
 
     public Estudiante() {
     }
 
-    public Estudiante(Integer id, String nombre, String apellido, LocalDateTime fechaNacimiento) {
+    public Estudiante(Integer id, String nombre, String apellido, Date fechaNacimiento) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -54,11 +60,11 @@ public class Estudiante {
         this.apellido = apellido;
     }
 
-    public LocalDateTime getFechaNacimiento() {
+    public Date getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(LocalDateTime fechaNacimiento) {
+    public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 }

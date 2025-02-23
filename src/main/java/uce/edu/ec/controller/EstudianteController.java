@@ -1,5 +1,7 @@
 package uce.edu.ec.controller;
 
+import java.util.List;
+
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
@@ -24,6 +26,7 @@ public class EstudianteController implements EstudianteServ {
     @POST
     @Path("")
     @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
 
     public void ingresarEstudiante(EstudianteTO estudianteto) {
         this.estudianteServ.ingresarEstudiante(estudianteto);
@@ -52,6 +55,15 @@ public class EstudianteController implements EstudianteServ {
     @Produces(MediaType.APPLICATION_JSON)
     public EstudianteTO obtenerEstudiante(@PathParam("id") Integer id) {
         return this.estudianteServ.obtenerEstudiante(id);
+    }
+
+    @GET
+    @Path("/todos")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public List<EstudianteTO> obtenerEstudiantes(){
+
+        return this.estudianteServ.obtenerEstudiantes();
     }
 
 }

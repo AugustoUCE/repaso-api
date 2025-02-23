@@ -1,12 +1,13 @@
 package uce.edu.ec.repository;
 
+import java.util.List;
+
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 import uce.edu.ec.repository.model.Estudiante;
-
-import java.util.List;
 
 @Transactional
 @ApplicationScoped
@@ -39,6 +40,8 @@ public class EstudianteRepoImpl implements EstudianteRepo {
 
     public List<Estudiante> obtenerEstudiantes() {
         // TODO implement here
-        return null;
+        TypedQuery<Estudiante> query = this.entityManager.createQuery("SELECT e FROM Estudiante e", Estudiante.class);
+        
+        return query.getResultList();
     }
 }
