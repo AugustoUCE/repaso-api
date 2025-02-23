@@ -1,11 +1,12 @@
 package uce.edu.ec.repository;
 
 import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import uce.edu.ec.repository.model.Estudiante;
+
+import java.util.List;
 
 @Transactional
 @ApplicationScoped
@@ -21,15 +22,19 @@ public class EstudianteRepoImpl implements EstudianteRepo {
 
     public void actualizarEstudiante(Estudiante estudiante) {
         // TODO implement here
+        this.entityManager.merge(estudiante);
     }
 
     public void eliminarEstudiante(Integer id) {
-        this.entityManager.remove();
+
+
+        this.entityManager.remove(this.obtenerEstudiante(id));
     }
 
     public Estudiante obtenerEstudiante(Integer id) {
         // TODO implement here
-        return null;
+
+        return this.entityManager.find(Estudiante.class, id);
     }
 
     public List<Estudiante> obtenerEstudiantes() {
